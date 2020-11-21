@@ -8,6 +8,7 @@ import {
 } from '../backend/middleware/errorMiddleware.js';
 
 import productRoutes from '../backend/routes/productRoutes.js';
+import userRoutes from '../backend/routes/userRoutes.js';
 
 dotenv.config();
 
@@ -15,11 +16,14 @@ connectDB();
 
 const app = express();
 
+app.use(express.json());
+
 app.get('/', (req, res) => {
   res.send('App is running...');
 });
 
 app.use('/api/products', productRoutes);
+app.use('/api/users', userRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
