@@ -11,7 +11,7 @@ import {
 } from '../actions/productActions';
 import { PRODUCT_CREATE_RESET } from '../constants/productConstants';
 
-const ProductListScreen = ({ history, match }) => {
+const ProductListScreen = ({ history }) => {
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
